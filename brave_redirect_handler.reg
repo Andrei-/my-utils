@@ -13,4 +13,4 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Classes\brave-redirect\shell\open]
 
 [HKEY_CURRENT_USER\Software\Classes\brave-redirect\shell\open\command]
-@="cmd.exe /c set \"url=%1\" & call set \"url=%%url:brave-redirect:=%%\" & start \"\" \"C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe\" \"%%url%%\""
+@="\"C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe\" \"%1\""
