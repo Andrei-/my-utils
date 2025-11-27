@@ -1,0 +1,16 @@
+Windows Registry Editor Version 5.00
+
+; Register brave-redirect: protocol and open URL directly in Brave (reuses existing window/tab)
+[HKEY_CURRENT_USER\Software\Classes\brave-redirect]
+@="URL:Brave Redirect Protocol"
+"URL Protocol"=""
+
+[HKEY_CURRENT_USER\Software\Classes\brave-redirect\DefaultIcon]
+@="\"C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe\",1"
+
+[HKEY_CURRENT_USER\Software\Classes\brave-redirect\shell]
+
+[HKEY_CURRENT_USER\Software\Classes\brave-redirect\shell\open]
+
+[HKEY_CURRENT_USER\Software\Classes\brave-redirect\shell\open\command]
+@="cmd.exe /c set \"url=%1\" & call set \"url=%%url:brave-redirect:=%%\" & start \"\" \"C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe\" \"%%url%%\""
