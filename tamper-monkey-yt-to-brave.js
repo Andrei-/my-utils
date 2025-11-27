@@ -18,6 +18,9 @@
         // Pass just the raw URL to the protocol (Brave gets https://... directly)
         const protocolUrl = 'brave-redirect:' + originalUrl
         location.replace(protocolUrl);
+        
+        // Close the Chrome tab after redirecting
+        window.close();
     }
 
     // Only redirect if the current page URL is YouTube
