@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube → Brave (Existing Window Fixed)
 // @namespace    http://tampermonkey.net/
-// @version      1.7
+// @version      1.8
 // @description  Every YouTube URL in Chrome opens in existing Brave window/tab
 // @author       You
 // @match        *://*/*
@@ -11,6 +11,9 @@
 
 (function () {
     'use strict';
+
+    // Only run in the top-level window, not in iframes
+    if (window !== window.top) return;
 
     const ytRegex = /^(https?:\/\/)(www\.)?(youtube\.com|youtu\.be|youtube-nocookie\.com)/i;
 
