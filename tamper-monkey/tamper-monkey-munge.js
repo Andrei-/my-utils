@@ -86,9 +86,31 @@
         const result = transform(base);
         GM_setClipboard(result);
 
-        alert(
-            "Just mix it: " + result + "\n\n" +
-            "(Copied to clipboard)"
-        );
+        // Get the currently focused element
+        const activeElement = document.activeElement;
+        
+        // Check if it's an input or textarea
+        if (activeElement && (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA')) {
+            // Get cursor position
+            const start = activeElement.selectionStart;
+            const end = activeElement.selectionEnd;
+            const currentValue = activeElement.value;
+            
+            // Insert text at cursor position
+            activeElement.value = currentValue.substring(0, start) + result + currentValue.substring(end);
+            
+            // Move cursor to end of inserted text
+            activeElement.selectionStart = activeElement.selectionEnd = start + result.length;
+            
+            // Trigger input event in case the page is listening
+            activeElement.dispatchEvent(new Event('input', { bubbles: true }));
+        } else {
+            // Fallback if no input is focused
+            alert(
+                "Just mix it: " + result + "\n\n" +
+                "(Copied to clipboard)\n" +
+                "Please focus an input field to paste automatically."
+            );
+        }
     });
 })();

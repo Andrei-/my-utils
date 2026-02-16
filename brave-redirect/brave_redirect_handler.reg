@@ -13,4 +13,4 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Classes\brave-redirect\shell\open]
 
 [HKEY_CURRENT_USER\Software\Classes\brave-redirect\shell\open\command]
-@="pwsh.exe -ExecutionPolicy Bypass -NoProfile -WindowStyle Hidden -File \"d:\\dev\\brave-redirect\\brave-redirect-handler.ps1\" \"%1\""
+@="pwsh.exe -ExecutionPolicy Bypass -NoProfile -WindowStyle Hidden -File \"d:\\dev\\my-utils\\brave-redirect\\brave-redirect-handler.ps1\" \"%1\""
